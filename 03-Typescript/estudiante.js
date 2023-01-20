@@ -14,13 +14,13 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Estudiante = void 0;
 var persona_1 = require("./persona");
 var Estudiante = /** @class */ (function (_super) {
     __extends(Estudiante, _super);
-    function Estudiante(correo, contrasena, nombre, edad, apellido) {
-        var _this = _super.call(this, nombre, apellido, edad) || this;
+    function Estudiante(correo, contrasena, persona) {
+        var _this = _super.call(this, persona.getNombre(), persona.getApellido(), persona.getEdad()) || this;
         _this.correo = correo;
         _this.contrasena = contrasena;
         return _this;

@@ -1,0 +1,32 @@
+<h1>Demo Clase de interpolación y directivas</h1>
+<h2 style="color: green" class="subtitulo">{{ subtitulo }}</h2>
+
+<h3>Directivas de atributo</h3>
+<p [style.backgroundColor]="variable1 === 5 ? 'blue' : 'red'">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore mna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p [ngClass]="variable1 === 5 ? 'borde-verde' : 'borde-rojo'">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<hr>
+
+<h3>Directivas estructurales</h3>
+
+<ul>
+    <li *ngFor="let estudiante of listaEstudiantes" [ngClass]="estudiante.estaActivo ? 'activo' : 'inactivo'">
+        {{ estudiante.nombre }}
+        <button *ngIf="estudiante.estaActivo == false">Activar</button>
+    </li>
+</ul>
+
+<div [ngSwitch]="estudianteActual.nombre">
+    <div *ngSwitchCase="'Juan'">Juan se encuentra en la plataforma</div>
+    <div *ngSwitchCase="'Mónica'">Mónica se encuentra activa en el sitio</div>
+    <div *ngSwitchDefault>Otro usuario se encuentra logeado</div>
+</div>
+
+<hr>
+
+<h3>Directiva personalizada</h3>
+
+<p appDirectivaPersonalizada>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore mna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<p>{{ estudianteActual | json }}</p>

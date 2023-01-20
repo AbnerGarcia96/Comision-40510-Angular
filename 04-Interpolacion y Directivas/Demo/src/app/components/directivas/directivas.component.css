@@ -1,0 +1,19 @@
+.subtitulo{
+    font-size: 2em;
+}
+
+.borde-verde{
+    border: 1px solid green;
+}
+
+.borde-rojo{
+    border: 1px solid red;
+}
+
+.activo: {
+    color: green;
+}
+
+.inactivo{
+    color: red;
+}
