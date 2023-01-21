@@ -5,7 +5,7 @@
     'menu   main    main    main    main    main    main';
 }
 
-.grid-header{
+.encabezado{
     grid-area: header;
 }
 
