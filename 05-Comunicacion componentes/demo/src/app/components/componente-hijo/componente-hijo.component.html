@@ -1,0 +1,32 @@
+<div class="clase-hijo">
+    <h4>Este mensaje es desde el componente app-componete-hijo</h4>
+    <ol>
+        <li *ngFor="let estudiante of estudiantesHijo">
+            <p>Nombre: {{ estudiante.nombre }}</p>
+            <p>Curso: {{ estudiante.curso }} </p>
+            <p>Esta activo: {{ estudiante.activo }}</p>
+            <p>Nota media: {{ estudiante.notaMedia }}</p>
+        </li>
+    </ol>
+
+    <div class="formulario">
+        <div class="row">
+            <div class="col">
+                <input type="text" [(ngModel)]="nombre" placeholder="Nombre" (keyup)="actualizarNombre()">
+            </div>
+            <div class="col">
+                <input type="text" [(ngModel)]="curso" placeholder="Curso">
+            </div>
+            <div class="col">
+                <input type="checkbox" [(ngModel)]="activo" >
+                <label>Activo</label>
+            </div>
+            <div class="col">
+                <input type="number" placeholder="Nota Media" [(ngModel)]="notaMedia" >
+            </div>
+        </div>
+        <div class="row">
+            <button (click)="agregarEstudiante()">Agregar estudiante</button>
+        </div>
+    </div>
+</div>

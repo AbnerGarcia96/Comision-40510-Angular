@@ -1,0 +1,6 @@
+<div class="clase-padre">
+    <h4>Este mensaje es desde el componente app-componente-padre</h4> 
+    <app-componente-hijo [estudiantesHijo]="estudiantesPadre" (eventoSalidaEstudiante)="actualizarEstudiantesPadre($event)"></app-componente-hijo>
+
+    <h4 #mensaje>Mensaje de prueba para @ViewChild</h4>
+</div>

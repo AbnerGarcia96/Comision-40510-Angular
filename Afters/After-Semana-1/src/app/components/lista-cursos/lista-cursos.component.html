@@ -1,8 +1,10 @@
 <h3>Cursos disponibles</h3>
 
+<pre> {{ cursos | json }} </pre>
+
 <div class="card" style="width: 18rem;" *ngFor="let curso of cursos">
     <div class="card-body">
-        <h5 class="card-title">{{ curso.nombre }}</h5>
+        <h5 class="card-title">{{ curso.nombre | uppercase }}</h5>
         <h6 class="card-subtitle mb-2 text-muted">Impartido por {{ curso.profesor }}</h6>
         <p class="card-text">
             <span *ngIf="curso.estudiantes.length > 0">Estudiantes: {{ curso.estudiantes }}</span>
