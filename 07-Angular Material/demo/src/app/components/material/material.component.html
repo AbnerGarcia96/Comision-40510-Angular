@@ -1,0 +1,66 @@
+<h4>Demo de tabla en Angular Material</h4>
+
+<table mat-table [dataSource]="dataSource">
+    <!-- Columna de nombre -->
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+    </ng-container>
+
+    <!-- Columna de comision -->
+    <ng-container matColumnDef="comision">
+        <th mat-header-cell *matHeaderCellDef>Comision</th>
+        <td mat-cell *matCellDef="let element">{{ element.comision }}</td>
+    </ng-container>
+
+    <!-- Columna de profesor -->
+    <ng-container matColumnDef="profesor">
+        <th mat-header-cell *matHeaderCellDef>Profesor</th>
+        <td mat-cell *matCellDef="let element">{{ element.profesor }}</td>
+    </ng-container>
+
+    <!-- Columna de profesor -->
+    <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn">
+                <mat-icon>payments</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+</table>
+
+<hr>
+
+<h4>Demo de cards con Angular Material</h4>
+
+<div class="container">
+    <div class="row">
+        <div class="col" *ngFor="let curso of cursos">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{ curso.nombre }}</mat-card-title>
+                    <mat-card-subtitle>{{ curso.comision }}</mat-card-subtitle>
+                </mat-card-header>
+                <img class="card-imagen" mat-card-image src="https://parentesis.com/imagesPosts/coder00.jpg" alt="">
+                <mat-card-content>
+                    <p>Impartido por {{ curso.profesor }}</p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-raised-button color="primary" (click)="abrirModal(curso)">
+                        Editar
+                    </button>
+                    <button mat-button color="warn">
+                        Eliminar
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
