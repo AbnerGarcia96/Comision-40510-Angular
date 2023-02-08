@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3" *ngFor="let curso of cursos">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{ curso.nombre }}</mat-card-title>
+                    <mat-card-subtitle>{{ curso.comision }}</mat-card-subtitle>
+                </mat-card-header>
+                <img class="card-imagen" mat-card-image src="https://parentesis.com/imagesPosts/coder00.jpg" alt="">
+                <mat-card-content>
+                    <p>Impartido por {{ curso.profesor.nombre }}</p>
+                    <p>{{ curso.inscripcionAbierta }}</p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-raised-button color="primary">
+                        Editar
+                    </button>
+                    <button mat-button color="warn">
+                        Eliminar
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

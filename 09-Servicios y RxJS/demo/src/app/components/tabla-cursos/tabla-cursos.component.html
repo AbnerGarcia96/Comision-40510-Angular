@@ -1,5 +1,3 @@
-<h4>Demo de tabla en Angular Material</h4>
-
 <table mat-table [dataSource]="dataSource">
     <!-- Columna de nombre -->
     <ng-container matColumnDef="nombre">
@@ -22,7 +20,7 @@
     <!-- Columna de fechaInicio -->
     <ng-container matColumnDef="fechaInicio">
         <th mat-header-cell *matHeaderCellDef>Inicia</th>
-        <td mat-cell *matCellDef="let element">{{ element.fechaInicio | formatoFecha }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.fechaInicio }}</td>
     </ng-container>
 
     <!-- Columna de fechaFin -->
@@ -35,8 +33,8 @@
     <ng-container matColumnDef="inscripcionAbierta">
         <th mat-header-cell *matHeaderCellDef>Inscripciones abiertas</th>
         <td mat-cell *matCellDef="let element">
-            <div [appBooleanoEstilo]="element.inscripcionAbierta">
-                {{ element.inscripcionAbierta | booleanoATexto:'Si':'No' }}
+            <div>
+                {{ element.inscripcionAbierta }}
             </div>
         </td>
     </ng-container>
@@ -57,42 +55,3 @@
     <tr mat-header-row *matHeaderRowDef="columnas"></tr>
     <tr mat-row *matRowDef="let row; columns: columnas"></tr>
 </table>
-
-<hr>
-
-<h4>Demo de cards con Angular Material</h4>
-
-<div class="row">
-    <mat-form-field>
-        <mat-label>
-            Filtrar cursos
-        </mat-label>
-        <input type="text" matInput [(ngModel)]="filtro">
-    </mat-form-field>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col" *ngFor="let curso of cursos | filtroCursos: filtro">
-            <mat-card>
-                <mat-card-header>
-                    <mat-card-title>{{ curso.nombre }}</mat-card-title>
-                    <mat-card-subtitle>{{ curso.comision }}</mat-card-subtitle>
-                </mat-card-header>
-                <img class="card-imagen" mat-card-image src="https://parentesis.com/imagesPosts/coder00.jpg" alt="">
-                <mat-card-content>
-                    <p>Impartido por {{ curso.profesor.nombre }}</p>
-                    <p [appBooleanoEstilo]="curso.inscripcionAbierta">{{ curso.inscripcionAbierta | booleanoATexto:'Inscripciones abiertas':'Inscripciones cerradas' }}</p>
-                </mat-card-content>
-                <mat-card-actions align="end">
-                    <button mat-raised-button color="primary" (click)="abrirModal(curso)">
-                        Editar
-                    </button>
-                    <button mat-button color="warn">
-                        Eliminar
-                    </button>
-                </mat-card-actions>
-            </mat-card>
-        </div>
-    </div>
-</div>

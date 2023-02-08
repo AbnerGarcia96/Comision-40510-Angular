@@ -7,13 +7,10 @@ import { Curso } from '../models/curso';
 export class FiltroCursosPipe implements PipeTransform {
 
   transform(cursos: Curso[], filtro: string): Curso[] {
-    if(filtro = ''){
-      return cursos
-    }else{
-      return cursos.filter((c) => {
-        c.nombre.toLocaleLowerCase().includes(filtro.toLocaleLowerCase()) 
-       });
-    }
+    console.log(filtro)
+    return cursos.filter((c) => {
+      return c.nombre.toLocaleLowerCase().includes(filtro.toLocaleLowerCase()) 
+    });
   }
 
 }
