@@ -10,7 +10,6 @@ import { TablaCursosComponent } from './components/tabla-cursos/tabla-cursos.com
 import { CursoAlphaService } from './services/curso-alpha.service';
 import { cursos } from './services/cursos.data';
 import { env } from 'src/environment/environment';
-import { config, token } from './config';
 
 @NgModule({
   declarations: [
@@ -23,23 +22,7 @@ import { config, token } from './config';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [
-    // CursoService,
-    // {provide: CursoService, useExisting: CursoAlphaService}
-    // {provide: CursoService, useClass: CursoAlphaService}
-    // {provide: CursoService, useValue: cursos}
-    {provide: CursoService, useFactory: ()=>{
-      if(env.utilizarServicioAlpha == 'Alpha'){
-        return new CursoAlphaService()
-      }else if(env.utilizarServicioAlpha == 'Legacy'){
-        return cursos
-      }else{
-        return new CursoService()
-      }
-    }
-    },
-    { provide: token, useValue: config }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

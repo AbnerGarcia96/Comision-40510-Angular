@@ -1,0 +1,57 @@
+<table mat-table [dataSource]="dataSource">
+    <!-- Columna de nombre -->
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+    </ng-container>
+
+    <!-- Columna de comision -->
+    <ng-container matColumnDef="comision">
+        <th mat-header-cell *matHeaderCellDef>Comision</th>
+        <td mat-cell *matCellDef="let element">{{ element.comision }}</td>
+    </ng-container>
+
+    <!-- Columna de profesor -->
+    <ng-container matColumnDef="profesor">
+        <th mat-header-cell *matHeaderCellDef>Profesor</th>
+        <td mat-cell *matCellDef="let element">{{ element.profesor.nombre }}</td>
+    </ng-container>
+
+    <!-- Columna de fechaInicio -->
+    <ng-container matColumnDef="fechaInicio">
+        <th mat-header-cell *matHeaderCellDef>Inicia</th>
+        <td mat-cell *matCellDef="let element">{{ element.fechaInicio }}</td>
+    </ng-container>
+
+    <!-- Columna de fechaFin -->
+    <ng-container matColumnDef="fechaFin">
+        <th mat-header-cell *matHeaderCellDef>Finaliza</th>
+        <td mat-cell *matCellDef="let element">{{ element.fechaFin | date:'dd/MM/YYYY HH:mm' }}</td>
+    </ng-container>
+
+    <!-- Columna de inscripcionAbierta -->
+    <ng-container matColumnDef="inscripcionAbierta">
+        <th mat-header-cell *matHeaderCellDef>Inscripciones abiertas</th>
+        <td mat-cell *matCellDef="let element">
+            <div>
+                {{ element.inscripcionAbierta }}
+            </div>
+        </td>
+    </ng-container>
+
+    <!-- Columna de profesor -->
+    <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn">
+                <mat-icon>payments</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+</table>
