@@ -1,0 +1,37 @@
+<div class="container">
+    <form [formGroup]="formulario" (ngSubmit)="agregarCurso()">
+        <div class="row">
+            <mat-form-field class="col-md-6">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre">
+            </mat-form-field>
+
+            <mat-form-field class="col-md-6">
+                <mat-label>Comision</mat-label>
+                <input matInput formControlName="comision">
+            </mat-form-field>
+
+            <mat-form-field class="col-md-6">
+                <mat-label>Fecha Inicio</mat-label>
+                <input matInput [matDatepicker]="fechaInicio" formControlName="fechaInicio">
+                <mat-datepicker-toggle matSuffix [for]="fechaInicio"></mat-datepicker-toggle>
+                <mat-datepicker #fechaInicio></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="col-md-6">
+                <mat-label>Fecha Fin</mat-label>
+                <input matInput [matDatepicker]="fechaFin" formControlName="fechaFin">
+                <mat-datepicker-toggle matSuffix [for]="fechaFin"></mat-datepicker-toggle>
+                <mat-datepicker #fechaFin></mat-datepicker>
+            </mat-form-field>
+
+            <div class="col-md-6">
+                <mat-slide-toggle formControlName="inscripcionAbierta">Inscripcion abierta</mat-slide-toggle>
+            </div>
+
+            <div class="col-md-6">
+                <button mat-raised-button color="primary" type="submit">Agregar</button>
+            </div>
+        </div>
+    </form>
+</div>
