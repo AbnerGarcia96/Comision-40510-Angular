@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row" *ngIf="cargando$ | async">
+        <div class="col-md-12">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+    <div class="row" *ngIf="!(cargando$ | async)">
+        <div class="col-md-3" *ngFor="let curso of cursos$ | async">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{ curso.nombre | uppercase }}</mat-card-title>
+                    <mat-card-subtitle>{{ curso.comision }}</mat-card-subtitle>
+                </mat-card-header>
+                <img class="card-imagen" mat-card-image src="https://parentesis.com/imagesPosts/coder00.jpg" alt="">
+                <mat-card-content>
+                    <p>Impartido por {{ curso.profesor.nombre }}</p>
+                    <p>{{ curso.inscripcionAbierta }}</p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <ng-container>
+                        <button mat-raised-button color="primary"
+                            (click)="abrirDialog(curso)">
+                            Editar
+                        </button>
+                        <button mat-button color="warn"
+                            (click)="eliminarCurso(curso)">
+                            Eliminar
+                        </button>
+                    </ng-container>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
